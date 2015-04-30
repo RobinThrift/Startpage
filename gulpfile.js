@@ -9,7 +9,7 @@ var gulp   = require('gulp'),
                 watch: ['src/styles/*', 'src/styles/**/*']
             },
             scripts: {
-                main: 'src/scripts/main.js',
+                main: './src/scripts/main.js',
                 watch: ['src/scripts/*', 'src/scripts/**/*']
             }
         }
@@ -19,7 +19,7 @@ gulp.task('scss:compile', function() {
     var scss = require('gulp-sass'),
         neat = require('node-neat').includePaths;
 
-    return gulp.src(config.paths.scripts.main)
+    return gulp.src(config.paths.styles.main)
         .pipe(scss({
             includePaths: neat,
             errLogToConsole: true,
