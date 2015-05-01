@@ -36,10 +36,10 @@ gulp.task('scripts:compile', function() {
         babelify   = require('babelify'),
         b;
 
-    b = browserify({
-        entries: config.paths.scripts.main,
+    b = browserify(config.paths.scripts.main, {
         debug: true,
-        transform: [babelify]
+        transform: [babelify],
+        detectGlobals: false
     });
 
     return b.bundle()
