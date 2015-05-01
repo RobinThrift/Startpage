@@ -2,6 +2,143 @@
 
 @import 'colours';
 
-#main {
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
+.main {
+    height: 100%;
+    width: 100%;
+    background: $background;
+}
+
+.picture-bg {
+    background-size: 100% auto;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        -webkit-filter: blur(8px);
+    }
+}
+
+.clock {
+    display: block;
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    margin-left: -250px;
+    font-size: 200px;
+    height: 250px;
+    width: 500px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: $background;
+    text-shadow: 1px 2px 3px rgba(0,0,0,.4);
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+.cmd-line {
+    display: block;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    margin-left: -350px;
+    font-size: 200px;
+    width: 700px;
+    height: 45px;
+    line-height: 45px;
+    background: $background;
+    box-shadow: 0px 0px 4px rgba(0,0,0,.4);
+
+    .ps1 {
+        display: block;
+        height: 100%;
+        width: 40px;
+        text-align: center;
+        left: 0;
+        top: 0;
+        color: $color4;
+        position: absolute;
+        font-size: 30px;
+        -webkit-user-select: none;
+    }
+    
+    input {
+        display: block;
+        border: 0;
+        padding: 0 10px 0 40px;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background: none;
+        color: $foreground;
+        font-size: 18px;
+        box-sizing: border-box;
+
+        &:focus {
+            -webkit-appearance: none;
+            appearance: none;
+            box-shadow: none;
+            outline: none;
+        }
+    }
+}
+
+.links-box {
+    display: block;
+    position: absolute;
+    top: 310px;
+    left: 50%;
+    margin-left: -350px;
+    font-size: 200px;
+    width: 700px;
+    min-height: 100px;
+    background: $background;
+    box-shadow: 0px 0px 4px rgba(0,0,0,.4);
+    font-size: 16px;
+
+    display: flex;
+    justify-content: space-around;
+
+    .links-box__category {
+        flex-direction: colcolumn;
+        flex-basis: auto;
+        padding: 10px;
+
+        h3 {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: $color11;
+            font-size: 20px;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+            text-align: center;
+        }
+        
+        a {
+            color: $foreground;
+            text-decoration: none;
+
+            &:hover {
+                color: $color1;
+            }
+        }
+    }
 }
