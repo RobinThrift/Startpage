@@ -69,6 +69,6 @@ gulp.task('default', ['html:copy', 'scss:compile', 'scripts:compile']);
 
 gulp.task('watch', ['default'], function() {
     gulp.watch(config.paths.html, ['html:copy']);
-    gulp.watch(config.paths.scripts.watch, ['js:compile']);
+    gulp.watch(config.paths.scripts.watch, ['scripts:compile']);
     gulp.watch(config.paths.styles.watch, ['scss:compile']);
 });
