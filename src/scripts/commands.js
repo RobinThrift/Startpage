@@ -1,5 +1,7 @@
 // src/scripts/commands.js
 
+import {addBg} from './backgrounds';
+
 var commands = [
     {
         name: 'Google',
@@ -27,6 +29,13 @@ var commands = [
         regex: /^wiki ([\s\S]+)/i,
         fn: (args) => {
             window.location = `http://wikipedia.org/wiki/Special:Search/${args[0]}`;
+        }
+    },
+    {
+        name: 'Add BG',
+        regex: /^bg ([\s\S]+)/i,
+        fn: (args) => {
+            addBg(args[0]);
         }
     }
 ];
