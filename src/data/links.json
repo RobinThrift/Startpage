@@ -1,0 +1,35 @@
+[
+    {
+        name: "Common",
+        links: [
+            {name: "Gmail", url: "https://gmail.com"},
+            {name: "GitHub", url: "https://github.com/RobinThrift?tab=repositories"},
+            {name: "Hacker News", url: "https://news.ycombinator.com/"},
+            {name: "Amazon", url: "http://www.amazon.de/"}
+        ]
+    },
+    {
+        name: "Reddit",
+        baseUrl: 'http://reddit.com/',
+        links: [
+            {name: "/r/unixporn", url: "r/unixporn"},
+            {name: "/r/archlinux", url: "r/archlinux"},
+            {name: "/r/android", url: "r/android"}
+        ]
+    },
+    {
+        name: "Entertainment",
+        links: [
+            {name: "Youtube", url: "https://www.youtube.com/feed/subscriptions"},
+            {name: "CommitStrip", url: "http://www.commitstrip.com/en/"}
+        ]
+    },
+    {
+        name: "Work",
+        links: [
+            {name: "iDoneThis", url: "https://idonethis.com/home/"},
+            {name: "Yammer", url: "https://www.yammer.com"}
+        ]
+    }
+]
+
