@@ -30,6 +30,13 @@
             {name: "iDoneThis", url: "https://idonethis.com/home/"},
             {name: "Yammer", url: "https://www.yammer.com"}
         ]
+    },
+    {
+        name: "Uni",
+        links: [
+            {name: "Uni", url: "http://www.uni-hannover.de/"},
+            {name: "Stud.IP", url: "https://elearning.uni-hannover.de/index.php?again=yes"}
+        ]
     }
 ]
 
