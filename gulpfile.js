@@ -44,7 +44,18 @@ gulp.task('watch', ['default'], function() {
 
 gulp.task('serve', function() {
     browserSync.init({
-        server: config.paths.dest
+        server: {
+            baseDir: config.paths.dest,
+            index: 'index.html'
+        },
+        ui: false,
+        port: 8080,
+        logLevel: 'info';
+        logPrefix: 'BrowserSync',
+        open: false,
+        notify: false,
+        reloadDelay: 200
+
     });
     gulp.watch(config.paths.html, ['html:copy']).on('change', browserSync.reload)
     gulp.watch(config.paths.scripts.watch, ['scripts:compile']);
