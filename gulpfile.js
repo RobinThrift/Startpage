@@ -4,31 +4,13 @@ var gulp   = require('gulp'),
         paths: {
             dest: 'build',
             html: 'src/index.html',
-            styles: {
-                main: 'src/styles/main.scss',
-                watch: ['src/styles/*', 'src/styles/**/*']
-            },
             scripts: {
-                main: './src/scripts/main.jsx',
+                main: './src/scripts/main.js',
                 watch: ['src/scripts/*', 'src/scripts/**/*']
             }
         }
-    };
-
-gulp.task('scss:compile', function() {
-    var scss = require('gulp-sass'),
-        neat = require('node-neat').includePaths;
-
-    return gulp.src(config.paths.styles.main)
-        .pipe(scss({
-            includePaths: neat,
-            errLogToConsole: true,
-            sourceMapEmbed: true,
-            sourceMap: true,
-            outputStyle: 'compressed'
-        }))
-        .pipe(gulp.dest(config.paths.dest + '/styles'));
-});
+    },
+    browserSync = require('browser-sync').create();
 
 gulp.task('scripts:compile', function() {
     var browserify = require('browserify'),
@@ -44,7 +26,8 @@ gulp.task('scripts:compile', function() {
 
     return b.bundle()
         .pipe(source('main.js'))
-        .pipe(gulp.dest(config.paths.dest + '/scripts'));
+        .pipe(gulp.dest(config.paths.dest + '/scripts'))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('html:copy', function() {
@@ -53,22 +36,17 @@ gulp.task('html:copy', function() {
 });
 
 
-
-
-
-gulp.task('colours:get', function(done) {
-    var xtos = require('xresources-to-scss');
-
-    xtos.fileToFile('./.Xresources', './src/styles/colours.scss', function(err) {
-        done(err);
-    });
-});
-
-
-gulp.task('default', ['html:copy', 'scss:compile', 'scripts:compile']);
+gulp.task('default', ['html:copy', 'scripts:compile']);
 
 gulp.task('watch', ['default'], function() {
     gulp.watch(config.paths.html, ['html:copy']);
     gulp.watch(config.paths.scripts.watch, ['scripts:compile']);
-    gulp.watch(config.paths.styles.watch, ['scss:compile']);
+});
+
+gulp.task('serve', function() {
+    browserSync.init({
+        server: config.paths.dest
+    });
+    gulp.watch(config.paths.html, ['html:copy']).on('change', browserSync.reload)
+    gulp.watch(config.paths.scripts.watch, ['scripts:compile']);
 });
